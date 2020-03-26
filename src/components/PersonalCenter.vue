@@ -28,7 +28,6 @@ export default {
       });
     },
     logout(){
-      console.log('logout');
       this.$confirm('是否确定退出登录?', {
         confirmButtonText: '退出',
         cancelButtonText: '点错了',
@@ -41,6 +40,7 @@ export default {
         });
         bus.$emit('logout')
       }).catch(() => {
+
       });
     },
     handleCommand(command) {

@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import {Input} from 'element-ui'
 import bus from '../eventBus'
 export default {
     data(){
@@ -36,7 +35,6 @@ export default {
         }
     },
     components:{
-        'el-input':Input,
     },
     methods:{
         login(){

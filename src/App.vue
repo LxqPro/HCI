@@ -9,22 +9,28 @@
           </el-breadcrumb>
       </el-header>
       <el-container>
-        <el-aside width="200px">
+        <el-aside width="200px" id='aside'>
           <AsideContent></AsideContent>
         </el-aside>
-        <el-main>
-          <router-view></router-view>
-        </el-main>
+        <el-container>
+          <el-main>
+            <router-view></router-view>
+          </el-main>
+          <el-footer id="footer">
+            <FooterContent></FooterContent>
+          </el-footer>
+        </el-container>
       </el-container>
     </el-container>
   </div>
 </template>
 
 <script>
-import {Header,Main,Container,Aside,Breadcrumb,BreadcrumbItem} from 'element-ui'
+import {Header,Main,Footer,Container,Aside,Breadcrumb,BreadcrumbItem} from 'element-ui'
 import AsideContent from './components/AsideContent.vue'
 import Login from './components/Login'
 import PersonalCenter from './components/PersonalCenter'
+import FooterContent from './components/FooterContent'
 import bus from './eventBus'
 import RouteConfig from './data/RouteConfig'
 export default {
@@ -32,13 +38,15 @@ export default {
   components: {
     'el-header':Header,
     'el-main':Main,
+    'el-footer':Footer,
     'el-container':Container,
     'el-aside':Aside,
     'el-breadcrumb':Breadcrumb,
     'el-breadcurmb-item':BreadcrumbItem,
     AsideContent,
     Login,
-    PersonalCenter
+    PersonalCenter,
+    FooterContent
   },
   data(){
     return {
@@ -101,5 +109,15 @@ export default {
     right: 0;
     margin-right: 40px;
   }
-  
+  #aside{
+    height: 480px;
+  }
+  /* 左右上下居中对齐 */
+  #footer{
+    margin-top: 5px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
 </style>
